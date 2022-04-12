@@ -1,0 +1,12 @@
+{"text": "2022-04-09T17:41:34.400331+0300 ERROR An error has been caught in function '<module>', process 'MainProcess' (22547), thread 'MainThread' (139814688753472):\nTraceback (most recent call last):\n\n> File \"log_instr.py\", line 76, in <module>\n    main()\n    └ <function main at 0x7f2923d82af0>\n\n  File \"log_instr.py\", line 74, in main\n    divide(5, 0)\n    └ <function divide at 0x7f292463b820>\n\n  File \"log_instr.py\", line 70, in divide\n    return a / b\n           │   └ 0\n           └ 5\n\nZeroDivisionError: division by zero\n",
+  "record": {"elapsed": {"repr": "0:00:00.007169", "seconds": 0.007169},
+    "exception": {"type": "ZeroDivisionError", "value": "division by zero", "traceback": true},
+    "extra": {},
+    "file": {"name": "log_instr.py", "path": "log_instr.py"},
+    "function": "<module>",
+    "level": {"icon": "❌", "name": "ERROR", "no": 40},
+    "line": 76, "message": "An error has been caught in function '<module>', process 'MainProcess' (22547), thread 'MainThread' (139814688753472):",
+    "module": "log_instr", "name": "__main__",
+    "process": {"id": 22547, "name": "MainProcess"},
+    "thread": {"id": 139814688753472, "name": "MainThread"},
+    "time": {"repr": "2022-04-09 17:41:34.400331+03:00", "timestamp": 1649515294.400331}}}
