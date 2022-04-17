@@ -10,7 +10,7 @@ conn = sqlite3.connect(os.path.join("db", "finance.db"))
 cursor = conn.cursor()
 
 
-def insert(table: str, dict_col: Dict) -> None:
+def insert_data(table: str, dict_col: Dict) -> None:
     """db.insert("users", {"email": 'youliya',
                            "password": '1234',
                            "name": 'Julia',

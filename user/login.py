@@ -1,21 +1,17 @@
 """Работа с login авторизация регистрация"""
 from user.users import validate_credentials, add_user, read_users_table
-from typing import Dict, List, Tuple
+from typing import Tuple
 
 
-def select_login_form():
-    """ Спрашивает, есть ли у пользователя аккаунт
-    :return str
-    """
+def select_login_form() -> str:
+    """ Спрашивает, есть ли у пользователя аккаунт """
     print('Do you have an account?')
     ans = input("Please type 'yes' or 'no'\n")
     return ans
 
 
-def log_in():
-    """Просит предоставить учетные данные
-    :return tuple
-    """
+def log_in() -> Tuple[str, str]:
+    """ Просит предоставить учетные данные """
     print('Please log in by providing your user credentials')
     email = input('Email: ')
     password = input('Password: ')
@@ -39,7 +35,7 @@ def authorize(email, passw, db_email, db_passw):
     """ Вызывает форму авторизации """
     if email in db_email:
         if passw == db_passw:
-            print('Successfully logged in!')
+            print(f'{email.capitalize()} you have successfully logged in!')
             return email
         else:
             print('Your password is not correct. Please try again!')
@@ -69,13 +65,15 @@ def send_welcome():
                         db_passw=db_passw)
         return res
 
-    elif ans_user == 'no':
+    if ans_user == 'no':
         user_raw_data = sign_up()
         try:
             add_user(user_raw_data)
             print(read_users_table())
+            send_welcome()
         except Exception as e:
             print(e)
 
 
-send_welcome()
+if __name__ == '__main__':
+    send_welcome()

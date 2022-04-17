@@ -5,8 +5,7 @@ import db.db as db
 def add_user(user_raw_data: tuple):
     """Добавляет новые данные.
     Принимает на вход учетные данные, заполненные пользователем."""
-    # (email, password, name, surname)
-    db.insert("users", {
+    db.insert_data("users", {
         "email": user_raw_data[0],
         "password": user_raw_data[1],
         "name": user_raw_data[2],
@@ -16,9 +15,9 @@ def add_user(user_raw_data: tuple):
 
 
 def read_users_table() -> List[Dict]:
-    print("DB content users: ")
+    print("The users table contains the following data: ")
     return db.fetchall('users', ['user_id', 'email', 'password', 'name', 'surname'])
-    # [{...}, {...}, {"email": "kris", ...}]
+    # [{...}, {...}, {"email": "youl", ...}]
 
 
 def validate_credentials(check_email):
@@ -26,7 +25,7 @@ def validate_credentials(check_email):
     check_data = (check_email,)
     cursor.execute("SELECT email, password FROM users WHERE email=?", check_data)
     res = cursor.fetchone()
-    print("User's email and password: ", res)
+    # print("User's email and password: ", res)
     return res
 
 

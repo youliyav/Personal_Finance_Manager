@@ -5,8 +5,7 @@ from user.options import caller
 
 def main():
     try:
-        name = send_welcome()
-        print(f'Hi, {name}')
+        send_welcome()
         caller()
     except:
         print(Exception)
